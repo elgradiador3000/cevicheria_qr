@@ -4,13 +4,14 @@ import os
 
 app = Flask(__name__)
 
-# URL local
-url = "http://127.0.0.1:5000/"
+# URL de producción (Render)
+url = "https://cevicheria-yafrank.onrender.com/"
 
-# Crear QR
+# Crear carpeta static si no existe
 if not os.path.exists("static"):
     os.makedirs("static")
 
+# Crear QR
 qr = qrcode.make(url)
 qr.save("static/qr_yafrank.png")
 
@@ -49,5 +50,7 @@ def menu():
     </html>
     """
 
+# IMPORTANTE: usar puerto dinámico para Render
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
