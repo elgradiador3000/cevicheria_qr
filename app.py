@@ -31,7 +31,7 @@ def menu():
 
         <h2>Nuestro Menú</h2>
 
-        <img src="/static/menu.jpg" width="80%">
+        <img src="/static/menú.jpg" width="80%">
 
         <br><br>
 
